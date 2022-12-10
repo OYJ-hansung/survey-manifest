@@ -4,4 +4,4 @@ images:
 - name: dhdudwn95/survey
   newTag: v1
 resources:
-- ../../survey_base
+- ../../eureka_base

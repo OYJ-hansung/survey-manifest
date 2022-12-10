@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: survey
+  labels:
+    app: survey
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: survey
+  template:
+    metadata:
+      labels:
+        app: survey
+    spec:
+      containers:
+      - name: survey-service
+        image: dhdudwn95/survey:22
+        ports:
+        - containerPort: 8761
+        resources:
+          requests:
+            cpu: 50m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: survey
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 38083
+      port: 8083       # 서비스 포트
+      targetPort: 8083   # 타켓, 즉 pod의 포트
+      protocol: TCP
+      name: http
+  selector:
+    app: survey

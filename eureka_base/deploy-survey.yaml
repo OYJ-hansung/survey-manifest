@@ -18,7 +18,7 @@ spec:
       - name: survey-service
         image: dhdudwn95/survey:22
         ports:
-        - containerPort: 8761
+        - containerPort: 8083
         resources:
           requests:
             cpu: 50m

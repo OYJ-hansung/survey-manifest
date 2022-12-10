@@ -30,7 +30,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - nodePort: 38083
+    - nodePort: 30083
       port: 8083       # 서비스 포트
       targetPort: 8083   # 타켓, 즉 pod의 포트
       protocol: TCP
